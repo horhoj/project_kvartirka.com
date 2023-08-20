@@ -1,0 +1,35 @@
+.AsteroidCardSize {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unitsTypeBtnWrap {
+  display: flex;
+  gap: 10px;
+}
+
+.unitsTypeBtn {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #250f00;
+  border: none;
+  border-radius: 16px;
+  color: #F86600;
+
+  &:hover {
+    background-color: #F86600;
+    color: #fff;
+  }
+}
+
+.unitsTypeBtnActive {
+  background-color: #F86600;
+  color: #fff;
+}
+
+.parameterCaption {
+  font-style: italic;
+  font-size: 14px;
+  color: orange;
+}

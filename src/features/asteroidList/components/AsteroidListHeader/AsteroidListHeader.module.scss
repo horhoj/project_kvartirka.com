@@ -1,0 +1,48 @@
+.AsteroidListHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.title {
+  font-family: Helvetica;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 5px;
+}
+
+
+.button {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: none;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: underline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.buttonActive {
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  cursor: auto;
+}

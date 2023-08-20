@@ -1,17 +1,21 @@
 import { ReactNode } from 'react';
 import styles from './DefaultLayouts.module.scss';
-import { AppNav } from '~/appNav';
+import { BasketWidget } from '~/features/basket/widget/BasketWidget';
+import { Header } from '~/features/Header';
+import { Footer } from '~/features/Footer';
 
 interface DefaultLayoutsProps {
   children: ReactNode;
 }
 export function DefaultLayouts({ children }: DefaultLayoutsProps) {
   return (
-    <div className={styles.DefaultLayouts}>
-      <nav>
-        <AppNav />
-      </nav>
-      <main className={styles.main}>{children}</main>
-    </div>
+    <>
+      <BasketWidget />
+      <div className={styles.DefaultLayouts}>
+        <Header />
+        <main className={styles.main}>{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 }

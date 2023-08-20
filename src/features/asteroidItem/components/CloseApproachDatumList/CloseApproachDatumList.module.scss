@@ -1,0 +1,24 @@
+.CloseApproachDatumList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.unitsTypeBtnWrap {
+  display: flex;
+  gap: 10px;
+}
+
+.parameterCaption {
+  font-style: italic;
+  font-size: 14px;
+  color: orange;
+}
+
+.closeApproachDatumItemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}

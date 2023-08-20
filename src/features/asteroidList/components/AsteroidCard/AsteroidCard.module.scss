@@ -1,0 +1,126 @@
+.AsteroidCard {
+  padding: 10px;
+  // border: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date {
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.distance {
+  width: fit-content;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.distanceArrow {
+  // width: 100%;
+  // height: 5px;
+  height: 8px;
+  border-bottom: 1px solid #808080;
+  position: relative;
+}
+
+.distanceArrowLeft {
+  position: absolute;
+  left: -1px;
+  bottom: -3.5px;
+}
+
+.distanceArrowRight {
+  position: absolute;
+  right: -1px;
+  bottom: -3.5px;
+  transform: rotateZ(180deg);
+}
+
+.middle {
+  display: flex;
+  gap: 8px;
+}
+
+.asteroidImgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.asteroidImg {
+  width: 22px;
+  height: 22px;
+  aspect-ratio: 1;
+}
+
+.asteroidBigImg {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.asteroidNameAndSizeWrapper {}
+
+.asteroidName {
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #fff;
+}
+
+.asteroidSize {
+  font-family: Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.bottom {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.orderButton {
+  width: Hug (90px);
+  height: Hug (24px);
+  padding: 2px 11px 2px 11px;
+  border-radius: 16px;
+  gap: 2px;
+  border: none;
+  color: #F86600;
+  background-color: #F8660026;
+  font-family: Helvetica;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: #F86600;
+    color: #fff;
+  }
+}
+
+.isDangerous {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}

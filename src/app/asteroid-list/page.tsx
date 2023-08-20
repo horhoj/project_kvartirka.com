@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { APP_NAME } from '~/config/app';
-import { AsteroidListContainer } from '~/app/asteroid-list/containers/AsteroidListContainer';
+import { AsteroidListContainer } from '~/features/asteroidList/containers/AsteroidListContainer';
 
 export const metadata: Metadata = {
   title: `${APP_NAME} - список астероидов`,

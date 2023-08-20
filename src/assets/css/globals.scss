@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  font-family: Roboto, sans-serif;
+  font-family: Helvetica, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,11 +14,43 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #ddd;
+  background: #222;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #999;
+  background-color: #333;
   border-radius: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
+}
+
+body {
+  background-color: #000;
+  color: white;
+ 
+}
+
+@font-face {
+  font-weight: 400;
+  /* Соответствует значению normal */
+  font-family: Helvetica;
+  src: url("../fonts/Helvetica.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  /* Соответствует значению bold */
+  font-family: Helvetica;
+  src: url("../fonts/Helvetica-Bold.ttf");
+}
+
+@font-face {
+  font-style: italic;
+  font-family: Helvetica;
+  src: url("../fonts/Helvetica-Oblique.ttf");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: Passion One;
+  src: url("../fonts/PassionOne-Regular.ttf");
 }

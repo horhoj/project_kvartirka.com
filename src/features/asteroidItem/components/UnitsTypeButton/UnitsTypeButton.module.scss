@@ -1,0 +1,20 @@
+.UnitsTypeButton {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #250f00;
+  border: none;
+  border-radius: 16px;
+  color: #F86600;
+  user-select: none;
+
+  &:hover {
+    background-color: #F86600;
+    color: #fff;
+  }
+}
+
+.unitsTypeBtnActive {
+  background-color: #F86600;
+  color: #fff;
+}
+
