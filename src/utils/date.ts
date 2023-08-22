@@ -1,4 +1,5 @@
 import { addDays, formatISO } from 'date-fns';
+import { DEFAULT_LOCALE } from '~/config/app';
 
 export function formatDate(date: Date) {
   return formatISO(date, { representation: 'date' });
@@ -17,5 +18,5 @@ export function prevDate(date: string) {
 }
 
 export function getLocaleDate(date: Date) {
-  return new Date(date).toLocaleDateString('ru');
+  return new Date(date).toLocaleDateString(DEFAULT_LOCALE);
 }

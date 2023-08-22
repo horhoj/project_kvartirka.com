@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  reactStrictMode: false,
+  // scrollRestoration: false,
+};
 
 module.exports = nextConfig;
 

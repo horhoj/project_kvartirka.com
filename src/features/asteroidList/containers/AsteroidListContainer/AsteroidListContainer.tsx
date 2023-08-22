@@ -1,30 +1,25 @@
 'use client';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useAsteroidList } from '../../hooks/useAsteroidList';
 import { AsteroidListHeader } from '../../components/AsteroidListHeader';
 import { AsteroidList } from '../../components/AsteroidList';
 import { AsteroidCard } from '../../components/AsteroidCard';
 import { asteroidContext } from '../../contexts/AsteroidContext';
+
+import { asteroidListDataTransform } from '../../utils/asteroidListDataTransform';
+import { AsteroidData } from '../../types/common';
 import { Spinner } from '~/ui/Spinner';
-import { formatDate } from '~/utils/date';
-import { useSaveWindowScrollTopPosition } from '~/hooks/useSaveWindowScrollTopPosition';
+import { formatDate, nextDate } from '~/utils/date';
 
-const ASTEROID_LIST_SCROLL_LS_KEY = 'ASTEROID_LIST_SCROLL_LS_KEY';
+interface AsteroidListContainerProps {
+  asteroidDataFromSSR: AsteroidData;
+}
 
-export function AsteroidListContainer() {
+export function AsteroidListContainer({
+  asteroidDataFromSSR,
+}: AsteroidListContainerProps) {
   const asteroidListRequest = useAsteroidList();
   const asteroidCtx = useContext(asteroidContext);
-  useSaveWindowScrollTopPosition(ASTEROID_LIST_SCROLL_LS_KEY);
-
-  useEffect(() => {
-    if (asteroidListRequest.dateList.length === 0) {
-      asteroidListRequest.load(formatDate(new Date()));
-    }
-  }, []);
-
-  const onNextLoad = () => {
-    asteroidListRequest.loadNext();
-  };
 
   const isDistanceInKilometers =
     asteroidCtx?.state.isDistanceInKilometers ?? true;
@@ -34,6 +29,21 @@ export function AsteroidListContainer() {
       type: 'SET_IS_DISTANCE_IN_KILOMETERS',
       payload: value,
     });
+  };
+
+  const asteroidData: AsteroidData = {
+    ...asteroidDataFromSSR,
+    ...(asteroidCtx?.state.asteroidData ?? {}),
+  };
+
+  const asteroidTransformedData = asteroidListDataTransform(asteroidData);
+
+  const onNextLoad = () => {
+    let lastDate = formatDate(new Date());
+    if (asteroidTransformedData.dateList.length > 0) {
+      lastDate = asteroidTransformedData.dateList.slice(-1)[0];
+    }
+    asteroidListRequest.load(nextDate(lastDate));
   };
 
   return (
@@ -47,7 +57,7 @@ export function AsteroidListContainer() {
         isLoading={asteroidListRequest.isLoading}
         onNextLoad={onNextLoad}
       >
-        {asteroidListRequest.asteroidList.map((asteroid) => (
+        {asteroidTransformedData.list.map((asteroid) => (
           <AsteroidCard
             asteroid={asteroid}
             key={asteroid.id}

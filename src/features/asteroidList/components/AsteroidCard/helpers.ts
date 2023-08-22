@@ -4,13 +4,16 @@ import {
   ASTEROID_MIN_BIG_SIZE_METERS,
   MINIMUM_DISTANCE_IN_LUNAR_ORBITS_TO_RECOGNIZE_AN_ASTEROID_AS_DANGEROUS,
 } from '~/config/asteroid';
+import { DEFAULT_LOCALE } from '~/config/app';
 
 export const asteroidCardHelpers = {
   getCloseApproachDate: (asteroid: FetchAsteroidListNearEarthObject) => {
     const date = new Date(asteroid.close_approach_data[0].close_approach_date);
-    const day = date.toLocaleString('default', { day: '2-digit' });
-    const month = date.toLocaleString('default', { month: 'long' }).slice(0, 4);
-    const year = date.toLocaleString('default', { year: 'numeric' });
+    const day = date.toLocaleString(DEFAULT_LOCALE, { day: '2-digit' });
+    const month = date
+      .toLocaleString(DEFAULT_LOCALE, { month: 'long' })
+      .slice(0, 4);
+    const year = date.toLocaleString(DEFAULT_LOCALE, { year: 'numeric' });
 
     return `${day} ${month} ${year}`;
   },
@@ -24,14 +27,14 @@ export const asteroidCardHelpers = {
         Number.parseFloat(
           asteroid.close_approach_data[0].miss_distance.kilometers,
         ),
-      ).toLocaleString() + ' км';
+      ).toLocaleString(DEFAULT_LOCALE) + ' км';
 
     const distanceInLunarOrbits = Math.round(
       Number.parseFloat(asteroid.close_approach_data[0].miss_distance.lunar),
     );
 
     const distanceInLunarOrbitsWithUnits =
-      distanceInLunarOrbits.toLocaleString() +
+      distanceInLunarOrbits.toLocaleString(DEFAULT_LOCALE) +
       ' ' +
       plural(distanceInLunarOrbits, {
         one: 'лунная орбита',

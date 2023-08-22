@@ -1,13 +1,20 @@
-import Link from 'next/link';
+'use client';
+import { useRouter } from 'next/navigation';
 import styles from './AsteroidBackButton.module.scss';
-import { routeList } from '~/config/routes';
 
 export function AsteroidBackButton() {
+  const router = useRouter();
+
+  const back = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    router.back();
+  };
+
   return (
     <div className={styles.AsteroidBackButton}>
-      <Link href={routeList.asteroidList} className={styles.link}>
+      <a href={'#'} className={styles.link} onClick={back}>
         Назад к списку астероидов
-      </Link>
+      </a>
     </div>
   );
 }
