@@ -4,7 +4,7 @@ import { asteroidItemApi } from '~/features/asteroidItem/api';
 import { AsteroidItemContainer } from '~/features/asteroidItem/containers/AsteroidItemContainer';
 
 export const metadata: Metadata = {
-  title: `${APP_NAME} - asteroid item`,
+  title: `${APP_NAME} - страница астероида`,
   description: 'todo list page',
 };
 
@@ -15,5 +15,9 @@ interface AsteroidItemPageProps {
 export default async function AsteroidItemPage(props: AsteroidItemPageProps) {
   const res = await asteroidItemApi.fetchAsteroidItem(props.params.id);
 
-  return <div>{res.data && <AsteroidItemContainer asteroid={res.data} />}</div>;
+  return (
+    <div>
+      {res.data ? <AsteroidItemContainer asteroid={res.data} /> : 'loading'}
+    </div>
+  );
 }

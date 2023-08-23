@@ -19,6 +19,7 @@
   width: fit-content;
   margin-left: 350px;
   padding-right: 10px;
+  min-height: 100vh;
 
   @media screen and (max-width: 1200px) {
     margin-left: calc(100vw - 750px);

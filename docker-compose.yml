@@ -6,9 +6,9 @@ services:
       context: docker/nodejs
     user: "node"
     working_dir: /home/node/app
-    environment:
-      - NODE_ENV=development
-      #- NODE_ENV=production
+    # environment:
+      # - NODE_ENV=development
+      # - NODE_ENV=production
     volumes:
       - ./:/home/node/app
     ports:

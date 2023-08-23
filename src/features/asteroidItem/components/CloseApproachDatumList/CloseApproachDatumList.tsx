@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { CloseApproachDatum } from '../../types/FetchAsteroidItemResponse';
 import { UnitsTypeButton } from '../UnitsTypeButton';
+import { closeApproachDatumDataTransform } from '../../utils/closeApproachDatumDataTransform';
 import styles from './CloseApproachDatumList.module.scss';
 import { getLocaleDate } from '~/utils/date';
 
@@ -21,12 +22,16 @@ export function CloseApproachDatumList({
   closeApproachDatumList,
 }: CloseApproachDatumListProps) {
   const [unitsType, setUnitsType] = useState<MissDistanceKeys>('kilometers');
+  const closeApproachDatumTransformedList = useMemo(
+    () => closeApproachDatumDataTransform(closeApproachDatumList),
+    [closeApproachDatumList],
+  );
 
   return (
     <div className={styles.CloseApproachDatumList}>
-      {closeApproachDatumList.map((closeApproachDatumItem) => (
+      {closeApproachDatumTransformedList.map((closeApproachDatumItem) => (
         <div
-          key={String(closeApproachDatumItem.close_approach_date)}
+          key={closeApproachDatumItem.id}
           className={styles.closeApproachDatumItemCard}
         >
           <div>
