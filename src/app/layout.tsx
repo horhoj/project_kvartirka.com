@@ -1,10 +1,10 @@
 import '~/assets/css/globals.scss';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 import { DefaultLayouts } from '~/layouts/DefaultLayouts';
-import { AsteroidContextWrapper } from '~/features/asteroidList/contexts/AsteroidContext';
+import { AsteroidContextWrapper } from '~/features/contexts/AsteroidContext';
 
-const inter = Inter({ subsets: ['latin'] });
+// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App - root',
@@ -18,7 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      {/* <body className={inter.className}> */}
+      <body>
         <AsteroidContextWrapper>
           <DefaultLayouts>{children}</DefaultLayouts>
         </AsteroidContextWrapper>

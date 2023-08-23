@@ -12,10 +12,16 @@ import { routeList } from '~/config/routes';
 interface AsteroidCardProps {
   asteroid: FetchAsteroidListNearEarthObject;
   isDistanceInKilometers: boolean;
+  isInBasket: boolean;
+  toggleThePresenceOfAnAsteroidInBasket: () => void;
+  isShowAddToBasketButton: boolean;
 }
 export function AsteroidCard({
   asteroid,
   isDistanceInKilometers,
+  toggleThePresenceOfAnAsteroidInBasket,
+  isInBasket,
+  isShowAddToBasketButton,
 }: AsteroidCardProps) {
   const closeApproachDate = asteroidCardHelpers.getCloseApproachDate(asteroid);
 
@@ -65,7 +71,12 @@ export function AsteroidCard({
       </div>
       <div className={styles.bottom}>
         <div>
-          <button className={styles.orderButton}>заказать</button>
+          <button
+            className={styles.orderButton}
+            onClick={toggleThePresenceOfAnAsteroidInBasket}
+          >
+            {isInBasket ? ' в корзине' : 'заказать'}
+          </button>
         </div>
         <div>
           {isDangerous ? (

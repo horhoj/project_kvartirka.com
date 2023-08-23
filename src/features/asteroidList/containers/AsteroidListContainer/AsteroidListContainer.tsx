@@ -4,12 +4,13 @@ import { useAsteroidList } from '../../hooks/useAsteroidList';
 import { AsteroidListHeader } from '../../components/AsteroidListHeader';
 import { AsteroidList } from '../../components/AsteroidList';
 import { AsteroidCard } from '../../components/AsteroidCard';
-import { asteroidContext } from '../../contexts/AsteroidContext';
 
 import { asteroidListDataTransform } from '../../utils/asteroidListDataTransform';
 import { AsteroidData } from '../../types/common';
+import { FetchAsteroidListNearEarthObject } from '../../types/FetchAsteroidListResponse';
 import { Spinner } from '~/ui/Spinner';
 import { formatDate, nextDate } from '~/utils/date';
+import { asteroidContext } from '~/features/contexts/AsteroidContext';
 
 interface AsteroidListContainerProps {
   asteroidDataFromSSR: AsteroidData;
@@ -46,6 +47,14 @@ export function AsteroidListContainer({
     asteroidListRequest.load(nextDate(lastDate));
   };
 
+  const makeToggleThePresenceOfAnAsteroidInBasket =
+    (asteroid: FetchAsteroidListNearEarthObject) => () => {
+      asteroidCtx?.dispatch({
+        type: 'TOGGLE_THE_PRESENCE_OF_AN_ASTEROID_IN_BASKET',
+        payload: asteroid,
+      });
+    };
+
   return (
     <>
       <Spinner isShow={asteroidListRequest.isLoading} />
@@ -62,6 +71,11 @@ export function AsteroidListContainer({
             asteroid={asteroid}
             key={asteroid.id}
             isDistanceInKilometers={isDistanceInKilometers}
+            isShowAddToBasketButton={true}
+            isInBasket={asteroidCtx?.state.basket[asteroid.id] !== undefined}
+            toggleThePresenceOfAnAsteroidInBasket={makeToggleThePresenceOfAnAsteroidInBasket(
+              asteroid,
+            )}
           />
         ))}
       </AsteroidList>

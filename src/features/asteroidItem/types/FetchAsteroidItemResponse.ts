@@ -13,7 +13,7 @@ export interface FetchAsteroidItemResponse {
   is_sentry_object: boolean;
 }
 
-export interface CloseApproachDatum {
+interface CloseApproachDatum {
   close_approach_date: Date;
   close_approach_date_full: string;
   epoch_date_close_approach: number;
@@ -22,42 +22,42 @@ export interface CloseApproachDatum {
   orbiting_body: OrbitingBody;
 }
 
-export interface MissDistance {
+interface MissDistance {
   astronomical: string;
   lunar: string;
   kilometers: string;
   miles: string;
 }
 
-export enum OrbitingBody {
+enum OrbitingBody {
   Earth = 'Earth',
   Merc = 'Merc',
   Venus = 'Venus',
 }
 
-export interface RelativeVelocity {
+interface RelativeVelocity {
   kilometers_per_second: string;
   kilometers_per_hour: string;
   miles_per_hour: string;
 }
 
-export interface EstimatedDiameter {
+interface EstimatedDiameter {
   kilometers: Feet;
   meters: Feet;
   miles: Feet;
   feet: Feet;
 }
 
-export interface Feet {
+interface Feet {
   estimated_diameter_min: number;
   estimated_diameter_max: number;
 }
 
-export interface Links {
+interface Links {
   self: string;
 }
 
-export interface OrbitalData {
+interface OrbitalData {
   orbit_id: string;
   orbit_determination_date: Date;
   first_observation_date: Date;
@@ -83,7 +83,7 @@ export interface OrbitalData {
   orbit_class: OrbitClass;
 }
 
-export interface OrbitClass {
+interface OrbitClass {
   orbit_class_type: string;
   orbit_class_description: string;
   orbit_class_range: string;

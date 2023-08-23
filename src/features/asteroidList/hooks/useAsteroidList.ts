@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { asteroidListApi } from '../api';
-import { asteroidContext } from '../contexts/AsteroidContext';
 import { useApiRequest } from '~/api/hooks';
+import { asteroidContext } from '~/features/contexts/AsteroidContext';
 
 export function useAsteroidList() {
   const fetchAsteroidListRequest = useApiRequest(
