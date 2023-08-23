@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import styles from './DefaultLayouts.module.scss';
-import { BasketWidget } from '~/features/basket/widget/BasketWidget';
 import { Header } from '~/features/Header';
 import { Footer } from '~/features/Footer';
+import { BasketWidgetContainer } from '~/features/basket/containers/BasketWidgetContainer';
 
 interface DefaultLayoutsProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface DefaultLayoutsProps {
 export function DefaultLayouts({ children }: DefaultLayoutsProps) {
   return (
     <>
-      <BasketWidget />
+      <BasketWidgetContainer />
       <div className={styles.DefaultLayouts}>
         <Header />
         <main className={styles.main}>{children}</main>

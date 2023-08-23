@@ -1,0 +1,76 @@
+.BasketWidget {
+  width: 150px;
+  height: 161px;
+  border-radius: 24px;
+  background-color: #232526;
+  padding: 16px;
+  position: fixed;
+  top: 132px;
+  left: 700px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1200px) {
+    left: calc(100vw - 350px);
+  }
+
+  @media screen and (max-width: 822px) {
+    left: 472px;
+  }
+
+  @media screen and (max-width: 672px) {
+    left: 0;
+    bottom: 0;
+    top: auto;
+    height: 81px;
+    border-radius: 0;
+    width: 100%;
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: 1201px) {
+    left: calc(100% / 2 + 200px);
+  }
+}
+
+.title {
+  font-family: Helvetica;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+
+
+}
+
+.asteroidCount {
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.sendButton {
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  background-color: #F86600;
+  color: #fff;
+  width: 118px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(#F86600, 0.9);
+  }
+}
